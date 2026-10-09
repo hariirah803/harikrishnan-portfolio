@@ -501,8 +501,25 @@
     display: grid;
   }
 
+  .nav-bar {
+    min-height: 0;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    row-gap: 0.75rem;
+  }
+
   .nav {
-    display: none;
+    order: 3;
+    flex: 1 0 100%;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scrollbar-width: thin;
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
 
   .hero {
@@ -519,5 +536,109 @@
 
   .contact-box {
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.2rem, 9.2vw, 3.5rem);
+    line-height: 1.05;
+  }
+
+  .hero-copy h1 span {
+    display: block;
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+  }
+
+  .lead {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .cta-row {
+    gap: 12px;
+  }
+
+  .cta-row .primary-btn,
+  .cta-row .secondary-btn {
+    flex: 1 1 130px;
+    padding: 0.85rem 1rem;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 0.8rem 0.55rem;
+    text-align: center;
+  }
+
+  .stat-card strong {
+    font-size: 1.25rem;
+  }
+
+  .stat-card span {
+    font-size: 0.7rem;
+  }
+
+  .profile-card {
+    padding: 1.25rem;
+  }
+
+  .profile-card h2 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .info-list li {
+    align-items: flex-start;
+  }
+
+  .info-list strong {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .about-card,
+  .project-card,
+  .education-card {
+    padding: 1.25rem;
+  }
+
+  .contact-box {
+    padding: 1.25rem;
+  }
+
+  .contact-box > div:last-child {
+    min-width: 0;
+  }
+
+  .contact-box .secondary-btn {
+    overflow-wrap: anywhere;
+  }
+
+  .skill-list {
+    gap: 10px;
+  }
+
+  .skill-tag {
+    padding: 0.7rem 0.9rem;
   }
 }
