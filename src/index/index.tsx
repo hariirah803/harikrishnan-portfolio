@@ -1,16 +1,21 @@
-import './App.css'
+import './index.css'
+import profileImage from '../assets/Media.jpg'
 
-const navItems = ['Home', 'About', 'Projects', 'Skills', 'Contact']
+const navItems = ['Home', 'About', 'Experience', 'Projects', 'Skills', 'Contact']
 
 const skills = [
   'React',
   'JavaScript',
+  'TypeScript',
   'HTML5',
   'CSS3',
   'Responsive Design',
   'UI/UX',
+  'GitHub',
   'Git',
   'Figma',
+  'Bootstrap',
+  'Tailwind CSS',
 ]
 
 const projects = [
@@ -35,25 +40,42 @@ const projects = [
 ]
 
 const stats = [
-  { value: '3+', label: 'Years building' },
-  { value: '12', label: 'Projects launched' },
+  { value: '2+', label: 'Years building' },
+  { value: '8+', label: 'Projects launched' },
   { value: '100%', label: 'Client-focused' },
 ]
 
 const education = [
   {
-    course: 'B.Tech in Computer Science',
-    school: 'University / College Name',
-    year: '2020 - 2024',
+    course: 'Bachelor of Engineering in Computer Science',
+    school: 'Pallavan College of Engineering, Anna University',
+    year: '2014 - 2018',
   },
   {
     course: 'Higher Secondary Education',
-    school: 'School Name',
-    year: '2018 - 2020',
+    school: 'St. Andrews Higher Secondary School',
+    year: '2012 - 2014',
   },
 ]
 
-function App() {
+const experience = [
+  {
+    role: 'Frontend Developer',
+    company: 'Freelance / Startup Work',
+    period: '2024 - Present',
+    details:
+      'Developed responsive interfaces, polished user experiences, and modern landing pages using React, JavaScript, and UI design principles.',
+  },
+  {
+    role: 'Web Development Intern',
+    company: 'Internship / Training Program',
+    period: '2023 - 2024',
+    details:
+      'Built interactive web components, improved layout responsiveness, and supported UI implementation for real-world projects.',
+  },
+]
+
+function Index() {
   return (
     <div className="portfolio-app">
       <header className="topbar">
@@ -82,8 +104,9 @@ function App() {
               </h1>
               <p className="headline-tag">Creative Frontend Developer</p>
               <p className="lead">
-                I build modern, responsive, and user-focused interfaces that turn
-                ideas into smooth digital experiences.
+                I’m a frontend developer focused on building clean, responsive,
+                and user-friendly web experiences with modern UI patterns and
+                performance-first thinking.
               </p>
 
               <div className="cta-row">
@@ -108,10 +131,7 @@ function App() {
             <div className="profile-panel" aria-label="Profile summary">
               <div className="profile-card">
                 <div className="image-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80"
-                    alt="Profile placeholder"
-                  />
+                  <img src={profileImage} alt="Harikrishnan profile" />
                 </div>
                 <div className="profile-text">
                   <p className="label">Available for work</p>
@@ -130,8 +150,25 @@ function App() {
                   <strong>Responsive UI</strong>
                 </li>
                 <li>
+                  <span>Phone</span>
+                  <strong>+91 8681920928</strong>
+                </li>
+                <li>
                   <span>Email</span>
-                  <strong>hello@harikrishnan.dev</strong>
+                  <strong>harikrish7676@gmail.com</strong>
+                </li>
+                <li>
+                  <span>GitHub</span>
+                  <strong>
+                    <a
+                      href="https://github.com/hariirah803"
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ color: '#f8fafc', textDecoration: 'none' }}
+                    >
+                      hariirah803
+                    </a>
+                  </strong>
                 </li>
               </ul>
             </div>
@@ -147,16 +184,16 @@ function App() {
           <div className="container about-grid">
             <div className="about-card">
               <p>
-                I enjoy building interfaces that look modern, feel intuitive, and
-                serve real user needs. My work balances visual design, layout
-                consistency, and performance.
+                I enjoy crafting modern and intuitive interfaces that combine strong
+                visual design with smooth user interactions. My work focuses on
+                creating polished experiences that are easy to use and easy to trust.
               </p>
             </div>
             <div className="about-card">
               <p>
-                From concept to implementation, I focus on responsive design,
-                accessibility, and thoughtful interactions that elevate the overall
-                digital experience.
+                With experience in frontend development, I design responsive layouts,
+                improve usability, and turn ideas into functional interfaces that feel
+                fast, clean, and professional across devices.
               </p>
             </div>
           </div>
@@ -174,6 +211,24 @@ function App() {
                 <span className="edu-year">{item.year}</span>
                 <h3>{item.course}</h3>
                 <p>{item.school}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section experience" id="experience">
+          <div className="container section-heading">
+            <p className="eyebrow">Experience</p>
+            <h2>Professional journey</h2>
+          </div>
+
+          <div className="container education-grid">
+            {experience.map((item) => (
+              <div className="education-card" key={item.role}>
+                <span className="edu-year">{item.period}</span>
+                <h3>{item.role}</h3>
+                <p>{item.company}</p>
+                <p style={{ marginTop: '0.75rem' }}>{item.details}</p>
               </div>
             ))}
           </div>
@@ -217,9 +272,22 @@ function App() {
               <p className="eyebrow">Contact</p>
               <h2>Let’s build your next great digital experience.</h2>
             </div>
-            <a className="primary-btn" href="mailto:hello@harikrishnan.dev">
-              hello@harikrishnan.dev
-            </a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <a className="primary-btn" href="tel:+918681920928">
+                +91 8681920928
+              </a>
+              <a className="secondary-btn" href="mailto:harikrish7676@gmail.com">
+                harikrish7676@gmail.com
+              </a>
+              <a
+                className="secondary-btn"
+                href="https://github.com/hariirah803"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub: hariirah803
+              </a>
+            </div>
           </div>
         </section>
       </main>
@@ -227,4 +295,4 @@ function App() {
   )
 }
 
-export default App
+export default Index
